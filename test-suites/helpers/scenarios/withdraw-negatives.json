@@ -1,0 +1,113 @@
+{
+  "title": "Pool: Redeem negative test cases",
+  "description": "Redeem function with high-value withdrawal and borrow limits.",
+  "stories": [
+    {
+      "description": "User 0 deposits 14760.147 DAI and tries to redeem 0 DAI (revert expected)",
+      "actions": [
+        {
+          "name": "mint",
+          "args": {
+            "reserve": "DAI",
+            "amount": "14760.147",
+            "user": "0"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "approve",
+          "args": {
+            "reserve": "DAI",
+            "user": "0"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "deposit",
+          "args": {
+            "reserve": "DAI",
+            "amount": "14760.147",
+            "user": "0"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "DAI",
+            "amount": "0",
+            "user": "0"
+          },
+          "expected": "revert",
+          "revertMessage": "Amount to redeem needs to be > 0"
+        }
+      ]
+    },
+    {
+      "description": "User 0 tries to redeem 1000000000 DAI from the 14760.147 DAI deposited (revert expected)",
+      "actions": [
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "DAI",
+            "amount": "1000000000",
+            "user": "0"
+          },
+          "expected": "revert",
+          "revertMessage": "User cannot redeem more than the available balance"
+        }
+      ]
+    },
+    {
+      "description": "User 1 deposits 1 WETH, borrows 1000000000000 DAI, then tries to redeem 1000000000 WETH (revert expected)",
+      "actions": [
+        {
+          "name": "mint",
+          "args": {
+            "reserve": "WETH",
+            "amount": "1",
+            "user": "1"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "approve",
+          "args": {
+            "reserve": "WETH",
+            "user": "1"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "deposit",
+          "args": {
+            "reserve": "WETH",
+            "amount": "1",
+            "user": "1"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "borrow",
+          "args": {
+            "reserve": "DAI",
+            "amount": "1000000000000",
+            "user": "1",
+            "borrowRateMode": "stable"
+          },
+          "expected": "success"
+        },
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "WETH",
+            "amount": "1000000000",
+            "user": "1"
+          },
+          "expected": "revert",
+          "revertMessage": "Transfer cannot be allowed."
+        }
+      ]
+    }
+  ]
+}
