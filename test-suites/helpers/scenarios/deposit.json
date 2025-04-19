@@ -169,6 +169,7 @@
           },
           "expected": "success"
         },
+
         {
           "name": "approve",
           "args": {
@@ -253,7 +254,7 @@
           "name": "borrow",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000000",
+            "amount": "0.1",
             "borrowRateMode": "variable",
             "user": "2"
           },
