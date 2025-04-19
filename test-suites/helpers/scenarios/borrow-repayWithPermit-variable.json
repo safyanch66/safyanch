@@ -78,7 +78,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000000",
+            "amount": "1476.01",
             "borrowRateMode": "variable",
             "user": "1",
             "timeTravel": "365"
@@ -169,7 +169,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "0"
           },
           "expected": "success"
@@ -183,7 +183,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "1"
           },
           "expected": "success"
