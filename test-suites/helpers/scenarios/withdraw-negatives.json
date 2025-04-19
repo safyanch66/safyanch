@@ -1,9 +1,9 @@
 {
   "title": "Pool: Redeem negative test cases",
-  "description": "Redeem function with high-value withdrawal and borrow limits.",
+  "description": "Redeem function.",
   "stories": [
     {
-      "description": "User 0 deposits 14760.147 DAI and tries to redeem 0 DAI (revert expected)",
+      "description": "Users 0 Deposits 14760.147 DAI and tries to redeem 0 DAI (revert expected)",
       "actions": [
         {
           "name": "mint",
@@ -31,6 +31,7 @@
           },
           "expected": "success"
         },
+
         {
           "name": "withdraw",
           "args": {
@@ -44,13 +45,13 @@
       ]
     },
     {
-      "description": "User 0 tries to redeem 1000000000 DAI from the 14760.147 DAI deposited (revert expected)",
+      "description": "Users 0 tries to redeem 16236.16 DAI from the 14760.147 DAI deposited (revert expected)",
       "actions": [
         {
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000",
+            "amount": "16236.16",
             "user": "0"
           },
           "expected": "revert",
@@ -59,7 +60,7 @@
       ]
     },
     {
-      "description": "User 1 deposits 1 WETH, borrows 1000000000000 DAI, then tries to redeem 1000000000 WETH (revert expected)",
+      "description": "Users 1 deposits 1 WETH, borrows 100 DAI, tries to redeem the 1 WETH deposited (revert expected)",
       "actions": [
         {
           "name": "mint",
@@ -91,7 +92,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000000",
+            "amount": "100",
             "user": "1",
             "borrowRateMode": "stable"
           },
@@ -101,7 +102,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "1"
           },
           "expected": "revert",
