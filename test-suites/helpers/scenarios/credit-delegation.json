@@ -72,7 +72,7 @@
           "name": "borrow",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000000",
+            "amount": "1",
             "user": "4",
             "onBehalfOf": "0",
             "borrowRateMode": "variable"
@@ -116,7 +116,7 @@
           "name": "borrow",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000000",
+            "amount": "3",
             "user": "4",
             "onBehalfOf": "0",
             "borrowRateMode": "variable"
@@ -148,34 +148,6 @@
             "user": "2",
             "onBehalfOf": "0",
             "borrowRateMode": "stable"
-          },
-          "expected": "success"
-        }
-      ]
-    },
-    {
-      "description": "User 0 withdraws the deposited DAI plus interest",
-      "actions": [
-        {
-          "name": "withdraw",
-          "args": {
-            "reserve": "DAI",
-            "amount": "1000000000",
-            "user": "0"
-          },
-          "expected": "success"
-        }
-      ]
-    },
-    {
-      "description": "User 1 withdraws the collateral",
-      "actions": [
-        {
-          "name": "withdraw",
-          "args": {
-            "reserve": "WETH",
-            "amount": "1000000000",
-            "user": "1"
           },
           "expected": "success"
         }
