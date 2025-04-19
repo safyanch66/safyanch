@@ -1,9 +1,9 @@
 {
   "title": "Pool: Withdraw",
-  "description": "Withdraw function with large value edge cases.",
+  "description": "withdraw function.",
   "stories": [
     {
-      "description": "User 3 deposits 14760.147 DAI, sets using as collateral = false, then withdraws 14760.147 DAI",
+      "description": "Users 3 Deposit 14760.147 DAI, set using as collateral = false, then withdraw 14760.147 dai",
       "actions": [
         {
           "name": "mint",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "description": "User 0 deposits 14760.147 DAI in an empty reserve",
+      "description": "User 0 Deposits 14760.147 DAI in an empty reserve",
       "actions": [
         {
           "name": "mint",
@@ -83,13 +83,13 @@
       ]
     },
     {
-      "description": "User 0 withdraws 1,000,000,000 DAI",
+      "description": "User 0 withdraws half of the deposited DAI",
       "actions": [
         {
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000",
+            "amount": "500",
             "user": "0"
           },
           "expected": "success"
@@ -97,7 +97,21 @@
       ]
     },
     {
-      "description": "User 0 deposits 14760.147 USDC and withdraws 1,000,000,000 USDC",
+      "description": "User 0 withdraws remaining half of the deposited DAI",
+      "actions": [
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "DAI",
+            "amount": "-1",
+            "user": "0"
+          },
+          "expected": "success"
+        }
+      ]
+    },
+    {
+      "description": "User 0 Deposits 14760.147 USDC in an empty reserve",
       "actions": [
         {
           "name": "mint",
@@ -124,12 +138,17 @@
             "user": "0"
           },
           "expected": "success"
-        },
+        }
+      ]
+    },
+    {
+      "description": "User 0 withdraws half of the deposited USDC",
+      "actions": [
         {
           "name": "withdraw",
           "args": {
             "reserve": "USDC",
-            "amount": "1000000000",
+            "amount": "500",
             "user": "0"
           },
           "expected": "success"
@@ -137,7 +156,21 @@
       ]
     },
     {
-      "description": "User 0 deposits 1 WETH and withdraws 1,000,000,000 WETH",
+      "description": "User 0 withdraws remaining half of the deposited USDC",
+      "actions": [
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "USDC",
+            "amount": "-1",
+            "user": "0"
+          },
+          "expected": "success"
+        }
+      ]
+    },
+    {
+      "description": "User 0 Deposits 1 WETH in an empty reserve",
       "actions": [
         {
           "name": "mint",
@@ -164,12 +197,17 @@
             "user": "0"
           },
           "expected": "success"
-        },
+        }
+      ]
+    },
+    {
+      "description": "User 0 withdraws half of the deposited WETH",
+      "actions": [
         {
           "name": "withdraw",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000",
+            "amount": "0.5",
             "user": "0"
           },
           "expected": "success"
@@ -177,7 +215,21 @@
       ]
     },
     {
-      "description": "Users 0 and 1 deposit 14760.147 DAI, both withdraw 1,000,000,000 DAI",
+      "description": "User 0 withdraws remaining half of the deposited WETH",
+      "actions": [
+        {
+          "name": "withdraw",
+          "args": {
+            "reserve": "WETH",
+            "amount": "-1",
+            "user": "0"
+          },
+          "expected": "success"
+        }
+      ]
+    },
+    {
+      "description": "Users 0 and 1 Deposit 14760.147 DAI, both withdraw",
       "actions": [
         {
           "name": "mint",
@@ -218,7 +270,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "0"
           },
           "expected": "success"
@@ -227,7 +279,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "1"
           },
           "expected": "success"
@@ -235,7 +287,7 @@
       ]
     },
     {
-      "description": "User 1 deposits USDC and WETH, borrows 1,000,000,000,000 DAI, then withdraws all USDC",
+      "description": "Users 0 deposits 14760.147 DAI, user 1 Deposit 14760.147 USDC and 1 WETH, borrows 100 DAI. User 1 tries to withdraw all the USDC",
       "actions": [
         {
           "name": "deposit",
@@ -302,7 +354,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1000000000000",
+            "amount": "100",
             "user": "1",
             "borrowRateMode": "stable"
           },
@@ -312,7 +364,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "USDC",
-            "amount": "1000000000",
+            "amount": "-1",
             "user": "1"
           },
           "expected": "success"
@@ -320,13 +372,13 @@
       ]
     },
     {
-      "description": "User 1 withdraws 1,000,000,000 WETH (assuming health factor is maintained)",
+      "description": "Users 1 tries to withdraw 0.05 WETH, which does not bring the HF below 1",
       "actions": [
         {
           "name": "withdraw",
           "args": {
             "reserve": "WETH",
-            "amount": "1000000000",
+            "amount": "0.05",
             "user": "1"
           },
           "expected": "success"
