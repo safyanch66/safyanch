@@ -3,13 +3,13 @@
   "description": "Test cases for the setUserUseReserveAsCollateral() function.",
   "stories": [
     {
-      "description": "User 0 Deposits 14760.147 DAI, disables DAI as collateral",
+      "description": "User 0 Deposits 14760000000000.147 DAI, disables DAI as collateral",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -26,7 +26,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "description": "User 1 Deposits 2 WETH, disables WETH as collateral, borrows 5904.05 DAI (revert expected)",
+      "description": "User 1 Deposits 2 WETH, disables WETH as collateral, borrows 5904000000000.05 DAI (revert expected)",
       "actions": [
         {
           "name": "mint",
@@ -84,7 +84,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "5904.05",
+            "amount": "5904000000000.05",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "description": "User 1 enables WETH as collateral, borrows 5904.05 DAI",
+      "description": "User 1 enables WETH as collateral, borrows 5904000000000.05 DAI",
       "actions": [
         {
           "name": "setUseAsCollateral",
@@ -109,7 +109,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "5904.05",
+            "amount": "5904000000000.05",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -133,13 +133,13 @@
       ]
     },
     {
-      "description": "User 1 Deposits 10 AAVE, disables WETH as collateral. Should revert as 10 AAVE are not enough to cover the debt (revert expected)",
+      "description": "User 1 Deposits 10000000000 AAVE, disables WETH as collateral. Should revert as 10000000000 AAVE are not enough to cover the debt (revert expected)",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "AAVE",
-            "amount": "10",
+            "amount": "10000000000",
             "user": "1"
           },
           "expected": "success"
@@ -156,7 +156,7 @@
           "name": "deposit",
           "args": {
             "reserve": "AAVE",
-            "amount": "10",
+            "amount": "10000000000",
             "user": "1"
           },
           "expected": "success"
@@ -173,13 +173,13 @@
       ]
     },
     {
-      "description": "User 1 Deposits 640 more AAVE (enough to cover the DAI debt), disables WETH as collateral",
+      "description": "User 1 Deposits 640000000000 more AAVE (enough to cover the DAI debt), disables WETH as collateral",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "AAVE",
-            "amount": "640",
+            "amount": "640000000000",
             "user": "1"
           },
           "expected": "success"
@@ -188,7 +188,7 @@
           "name": "deposit",
           "args": {
             "reserve": "AAVE",
-            "amount": "640",
+            "amount": "640000000000",
             "user": "1"
           },
           "expected": "success"
