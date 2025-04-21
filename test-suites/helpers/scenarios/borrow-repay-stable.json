@@ -3,13 +3,13 @@
   "description": "Test cases for the borrow function, stable mode.",
   "stories": [
     {
-      "description": "User 0 deposits 14760.147 DAI, user 1 deposits 1 WETH as collateral and borrows 1476.01 DAI at stable rate",
+      "description": "User 0 deposits 14760000000000.147 DAI, user 1 deposits 1 WETH as collateral and borrows 1476000000000.01 DAI at stable rate",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -26,7 +26,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -62,7 +62,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "1",
             "timeTravel": "365"
@@ -78,7 +78,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "13284.132",
+            "amount": "13284000000000.132",
             "borrowRateMode": "stable",
             "user": "1"
           },
@@ -146,7 +146,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "1",
             "onBehalfOf": "1",
             "borrowRateMode": "stable"
@@ -162,7 +162,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "0"
           },
           "expected": "success"
@@ -170,13 +170,13 @@
       ]
     },
     {
-      "description": "User 1 deposits 14760.147 DAI, user 2 tries to borrow 14760.147 DAI at a stable rate without any collateral (revert expected) User 1 withdrawws",
+      "description": "User 1 deposits 14760000000000.147 DAI, user 2 tries to borrow 14760000000000.147 DAI at a stable rate without any collateral (revert expected) User 1 withdrawws",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "1"
           },
           "expected": "success"
@@ -193,7 +193,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "1"
           },
           "expected": "success"
@@ -202,7 +202,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "borrowRateMode": "stable",
             "user": "2"
           },
@@ -213,7 +213,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "1"
           },
           "expected": "success"
@@ -221,13 +221,13 @@
       ]
     },
     {
-      "description": "User 0 deposits 14760.147 DAI, user 1,2,3,4 deposit 1 WETH each and borrow 1476.01 DAI at stable rate. Everything is repaid, user 0 withdraws",
+      "description": "User 0 deposits 14760000000000.147 DAI, user 1,2,3,4 deposit 1 WETH each and borrow 1476000000000.01 DAI at stable rate. Everything is repaid, user 0 withdraws",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -244,7 +244,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -279,7 +279,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "1",
             "timeTravel": "365"
@@ -316,7 +316,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "2",
             "timeTravel": "365"
@@ -353,7 +353,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "3",
             "timeTravel": "365"
@@ -390,7 +390,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "4",
             "timeTravel": "365"
@@ -399,10 +399,10 @@
         },
         {
           "name": "mint",
-          "description": "Mint 1476.01 DAI to cover the interest",
+          "description": "Mint 1476000000000.01 DAI to cover the interest",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "user": "1"
           },
           "expected": "success"
@@ -419,7 +419,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "1",
             "onBehalfOf": "1",
             "borrowRateMode": "stable"
@@ -428,10 +428,10 @@
         },
         {
           "name": "mint",
-          "description": "Mint 1476.01 DAI to cover the interest",
+          "description": "Mint 1476000000000.01 DAI to cover the interest",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "user": "2"
           },
           "expected": "success"
@@ -448,7 +448,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "2",
             "onBehalfOf": "2",
             "borrowRateMode": "stable"
@@ -457,10 +457,10 @@
         },
         {
           "name": "mint",
-          "description": "Mint 1476.01 DAI to cover the interest",
+          "description": "Mint 1476000000000.01 DAI to cover the interest",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "user": "3"
           },
           "expected": "success"
@@ -477,7 +477,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "3",
             "onBehalfOf": "3",
             "borrowRateMode": "stable"
@@ -486,10 +486,10 @@
         },
         {
           "name": "mint",
-          "description": "Mint 1476.01 DAI to cover the interest",
+          "description": "Mint 1476000000000.01 DAI to cover the interest",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "user": "4"
           },
           "expected": "success"
@@ -506,7 +506,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "4",
             "onBehalfOf": "4",
             "borrowRateMode": "stable"
@@ -517,7 +517,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "0"
           },
           "expected": "success"
@@ -525,13 +525,13 @@
       ]
     },
     {
-      "description": "User 0 deposits 14760.147 DAI, user 1 deposits 2 WETH and borrow 1476.01 DAI at stable rate first, then 1476.01 DAI at variable rate, repays everything. User 0 withdraws",
+      "description": "User 0 deposits 14760000000000.147 DAI, user 1 deposits 2 WETH and borrow 1476000000000.01 DAI at stable rate first, then 1476000000000.01 DAI at variable rate, repays everything. User 0 withdraws",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -548,7 +548,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -583,7 +583,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "1",
             "timeTravel": "365"
@@ -594,7 +594,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "variable",
             "user": "1",
             "timeTravel": "365"
@@ -623,7 +623,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "1",
             "onBehalfOf": "1",
             "borrowRateMode": "stable"
@@ -634,7 +634,7 @@
           "name": "repay",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "1",
             "onBehalfOf": "1",
             "borrowRateMode": "variable"
@@ -645,7 +645,7 @@
           "name": "withdraw",
           "args": {
             "reserve": "DAI",
-            "amount": "-1",
+            "amount": "-1000000000",
             "user": "0"
           },
           "expected": "success"
