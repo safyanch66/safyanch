@@ -18,13 +18,13 @@
       ]
     },
     {
-      "description": "User 0 deposits 1000 USDC, user 1 deposits 7 WETH, borrows 250 USDC at a stable rate, user 0 rebalances user 1 (revert expected)",
+      "description": "User 0 deposits 1000000000000 USDC, user 1 deposits 7 WETH, borrows 250000000000 USDC at a stable rate, user 0 rebalances user 1 (revert expected)",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "USDC",
-            "amount": "1000",
+            "amount": "1000000000000",
             "user": "0"
           },
           "expected": "success"
@@ -41,7 +41,7 @@
           "name": "deposit",
           "args": {
             "reserve": "USDC",
-            "amount": "1000",
+            "amount": "1000000000000",
             "user": "0"
           },
           "expected": "success"
@@ -76,7 +76,7 @@
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "250",
+            "amount": "250000000000",
             "borrowRateMode": "stable",
             "user": "1"
           },
@@ -95,13 +95,13 @@
       ]
     },
     {
-      "description": "User 1 borrows another 200 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
+      "description": "User 1 borrows another 200000000000 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
       "actions": [
         {
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "200",
+            "amount": "200000000000",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -120,13 +120,13 @@
       ]
     },
     {
-      "description": "User 1 borrows another 200 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
+      "description": "User 1 borrows another 200000000000 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
       "actions": [
         {
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "200",
+            "amount": "200000000000",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -145,13 +145,13 @@
       ]
     },
     {
-      "description": "User 1 borrows another 100 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
+      "description": "User 1 borrows another 100000000000 at variable, user 0 tries to rebalance but the conditions are not met (revert expected)",
       "actions": [
         {
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "180",
+            "amount": "180000000000",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -176,7 +176,7 @@
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "170",
+            "amount": "170000000000",
             "borrowRateMode": "variable",
             "user": "1"
           },
@@ -194,13 +194,13 @@
       ]
     },
     {
-      "description": "User 0 deposits 1000 USDC, user 1 deposits 7 WETH, borrows 950 USDC at a variable rate, user 0 rebalances user 1 (revert expected)",
+      "description": "User 0 deposits 1000000000000 USDC, user 1 deposits 7 WETH, borrows 950000000000 USDC at a variable rate, user 0 rebalances user 1 (revert expected)",
       "actions": [
         {
           "name": "mint",
           "args": {
             "reserve": "USDC",
-            "amount": "1000",
+            "amount": "1000000000000",
             "user": "0"
           },
           "expected": "success"
@@ -217,7 +217,7 @@
           "name": "deposit",
           "args": {
             "reserve": "USDC",
-            "amount": "1000",
+            "amount": "1000000000000",
             "user": "0"
           },
           "expected": "success"
@@ -252,7 +252,7 @@
           "name": "borrow",
           "args": {
             "reserve": "USDC",
-            "amount": "950",
+            "amount": "950000000000",
             "borrowRateMode": "variable",
             "user": "1"
           },
