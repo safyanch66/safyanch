@@ -134,10 +134,10 @@
         },
         {
           "name": "mint",
-          "description": "Mint 50 DAI to cover the interest",
+          "description": "Mint 50000000000 DAI to cover the interest",
           "args": {
             "reserve": "DAI",
-            "amount": "50",
+            "amount": "50000000000",
             "user": "1"
           },
           "expected": "success"
