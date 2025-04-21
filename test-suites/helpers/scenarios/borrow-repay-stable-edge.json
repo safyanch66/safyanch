@@ -9,7 +9,7 @@
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -43,7 +43,7 @@
           "name": "deposit",
           "args": {
             "reserve": "DAI",
-            "amount": "14760.147",
+            "amount": "14760000000000.147",
             "user": "0"
           },
           "expected": "success"
@@ -62,7 +62,7 @@
           "name": "borrow",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "borrowRateMode": "stable",
             "user": "1",
             "timeTravel": "365"
