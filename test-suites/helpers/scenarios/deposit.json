@@ -235,7 +235,7 @@
           "name": "mint",
           "args": {
             "reserve": "DAI",
-            "amount": "1476.01",
+            "amount": "1476000000000.01",
             "user": "1"
           },
           "expected": "success"
