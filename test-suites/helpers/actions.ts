@@ -239,7 +239,7 @@ export const withdraw = async (
 
   let amountToWithdraw = '0';
 
-  if (amount !== '-1') {
+  if (amount !== '-1000000000') {
     amountToWithdraw = (await convertToCurrencyDecimals(reserve, amount)).toString();
   } else {
     amountToWithdraw = MAX_UINT_AMOUNT;
@@ -465,7 +465,7 @@ export const repay = async (
 
   let amountToRepay = '0';
 
-  if (amount !== '-1') {
+  if (amount !== '-1000000000') {
     amountToRepay = (await convertToCurrencyDecimals(reserve, amount)).toString();
   } else {
     amountToRepay = MAX_UINT_AMOUNT;
@@ -686,7 +686,7 @@ export const repayWithPermit = async (
 
   let amountToRepay = '0';
 
-  if (amount !== '-1') {
+  if (amount !== '-1000000000') {
     amountToRepay = (await convertToCurrencyDecimals(reserve, amount)).toString();
   } else {
     amountToRepay = MAX_UINT_AMOUNT;
